@@ -1,0 +1,73 @@
+@font-face {
+	font-family: 'Font'; 
+	src: url(fonts/SFPRODISPLAYMEDIUM.OTF); 
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-size: 18px;
+	color: var(--tg-theme-text-color);
+	background: #333333;
+}
+
+.container {
+	max-width: 590px;
+}
+
+.inner {
+	display: grid;
+	grid-template-columns: 130px 130px;
+	grid-template-rows: 200px 200px 200px;
+	grid-column-gap: 30px;
+	grid-row-gap: 20px;
+}
+
+.img {
+	width: 130px;
+	border-radius: 8px 8px 0px 0px;
+}
+
+.item {
+	text-align: center;
+	background: rgb(65, 70, 73);
+	border-radius: 8px 8px 8px 8px;
+}
+
+.btn {
+	display: inline-block;
+	padding: 10px 20px;
+	border: none;
+	background: rgb(20, 171, 255);
+	border-radius: 10px;
+	color: #fff;
+	text-transform: uppercase;
+	font-weight: 700;
+
+	transition: background .2s linear;
+}
+
+.btn:hover {
+	background: lightgreen;
+}
+.description {
+	display: block;
+	margin-top: 2.5px;
+	margin-bottom: 5px;
+	font-family: Font;
+	font-size: 12.5px;
+	color: #fff;
+}
+
+.usercard {
+	text-align: center;
+}
+
+/*
+var(--tg-theme-bg-color)
+var(--tg-theme-text-color)
+var(--tg-theme-hint-color)
+var(--tg-theme-link-color)
+var(--tg-theme-button-color)
+var(--tg-theme-button-text-color)
+*/
