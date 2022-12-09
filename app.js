@@ -87,10 +87,14 @@ Telegram.WebApp.onEvent("mainButtonClicked", function(){
 
 let usercard = document.getElementById("usercard");
 
-let p = document.createElement("p");
+window.onscroll = function() {scrollFunction()};
 
-p.innerText = `${tg.initDataUnsafe.user.first_name}
-${tg.initDataUnsafe.user.last_name}`;
-
+function scrollFunction() {
+  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+    document.getElementById("navbarButtonFirst").style.backgroundColor = "#30A3E6";
+  } else {
+    document.getElementById("navbarButtonFirst").style.backgroundColor = "#333333";
+  }
+}
 
 usercard.appendChild(p); 
