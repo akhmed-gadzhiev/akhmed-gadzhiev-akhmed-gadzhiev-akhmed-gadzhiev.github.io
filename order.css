@@ -1,0 +1,92 @@
+@font-face {
+	font-family: 'Font'; 
+	src: url(fonts/SFPRODISPLAYMEDIUM.OTF); 
+}
+@font-face {
+	font-family: 'InterSemiBold';
+	src: url(Inter/Inter-SemiBold.otf);
+}
+@font-face {
+	font-family: 'InterRegular';
+	src: url(Inter/Inter-Regular.otf);
+}
+html {
+	background: #333333;
+}
+body {
+	margin: 0;
+	padding: 0;
+	font-size: 18px;
+	color: #fff;
+	background: #333333;
+	width: 393px;
+	font-family: Inter;
+	overflow-y: scroll;
+}
+.container {
+	max-width: 590px;
+	padding: 20px 20px 20px 20px;
+	position: relative;
+	width: 393px;
+	height: 852px;
+	margin-top: 45px;
+	text-align: center;
+
+	background: #333333;
+}
+.container::-webkit-scrollbar {
+  width: 0;
+}
+.inner {
+	display: grid;
+	grid-template-columns: 95%;
+	grid-template-rows: 100px;
+	grid-row-gap: 20px;
+	overflow-y: scroll;
+	padding: 20px 20px 20px 20px;
+	border: 1px solid;
+	border-radius: 8px;
+	border-color: #30A3E6;
+}
+.comment {
+	display: inline-block;
+	width: 80%;
+	height: 25%;
+	border: none;
+	resize: none;
+	font-size: 14px;
+	background: #000;
+	color: #fff;
+	border-radius: 8px;
+	padding-left: 20px;
+}
+.comment:focus {
+	outline-style: solid;
+	outline-color: #fff;
+}
+.header {
+	display: block;
+	font-size: 15px;
+	margin-top: 8px;
+	margin-bottom: 8px;
+	text-align: left;
+	color: #fff;
+}
+.image {
+	display: inline-block;
+	text-align: left;
+	height: 50px;
+	border-radius: 8px 8px 8px 8px;
+	left: 0;
+	top: 0;
+}
+.item-description {
+	display: inline-block;
+	margin-bottom:auto;
+	padding-left: 20px;
+	color: #fff;
+	font-family: InterSemiBold;
+}
+.elem {
+	text-align: left;
+}
