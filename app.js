@@ -239,7 +239,7 @@ jQuery(document).ready(function() {
 
 Telegram.WebApp.onEvent("mainButtonClicked", function(){
 	if (tg.MainButton.text.includes('Корзина')) {
-		document.location.replace('https://akhmed-gadzhiev.github.io/akhmed-gadzhiev-akhmed-gadzhiev-akhmed-gadzhiev.github.io/order.html')
+		document.location.assign('https://akhmed-gadzhiev.github.io/akhmed-gadzhiev-akhmed-gadzhiev-akhmed-gadzhiev.github.io/order.html')
 		let len = order.name.length();
 		for (var l = order.name.length(); l<order.name.length(); l++) {
 			document.getElementById('inner').innerHTML += `<div class="elem"><img src=${order.links[l]} class="image"><span class="item-description sticky-top">${order.name[l]}</span><span class="header">Комментарий:</span><textarea class="comment" placeholder="Например: кофе без сахара"></textarea></div>`;
