@@ -227,6 +227,7 @@ jQuery(document).ready(function() {
 					order.links.splice(index, 1)
 					if (order.price != 0) {
 						tg.MainButton.setText('Корзина ' + order.price + 'р');
+						console.log("MainButton showed")
 					} else {
 						tg.MainButton.hide();
 						console.log("MainButton hided")
