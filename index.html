@@ -8,88 +8,97 @@
 </head>
 <body>
 	<div class="navbar">
-		<div class="navbarContainer">
-			<span class="navbarButtonFirst navbarButton"><a class="link" href="#coffee">Кофе</a></span>
-			<span class="navbarButtonSecond navbarButton"><a class="link" href="#freshes">Фреши</a></span>
-			<span class="navbarButtonThird navbarButton"><a class="link" href="#coldDrinks">Холодные напитки</a></span>
-			<span class="navbarButtonFourth navbarButton"><a class="link" href="#grains">Зерна</a></span>
+		<div id="navbarContainer" class="navbarContainer">
+			<span id="navbarButtonFirst" class="navbarButtonFirst navbarButton"><a class="link" href="#coffee"><img src="https://telegra.ph/file/84a5126cf9b0c56d7eaa4.png" alt="Coffee" class="coffeeMini">Кофе</a></span>
+			<span id="navbarButtonSecond" class="navbarButtonSecond navbarButton"><a class="link" href="#freshes"><img src="https://telegra.ph/file/94361b002e57b4bb8ca2e.png" alt="Coffee" class="freshesMini">Фреши</a></span>
+			<span id="navbarButtonThird" class="navbarButtonThird navbarButton"><a class="link" href="#coldDrinks"><img src="https://telegra.ph/file/6af30d64320030141cece.png" alt="Coffee" class="freshesMini">Холодные напитки</a></span>
+			<span id="navbarButtonForth" class="navbarButtonFourth navbarButton"><a class="link" href="#grains"><img src="https://telegra.ph/file/eaa1b842c7a4af0e25c4d.png" alt="Coffee" class="freshesMini">Зерна</a></span>
 		</div>
 	</div>
 	<div class="container">
 		<div class="inner">
-			<div id="coffee"><span class="title coffee">Кофе</span></div><div></div>
-			<div class="item">
-				<img src="https://telegra.ph/file/e306fc9292c29e18e715f.jpg" alt="Capucino" class="img">
-				<span class="description">Капучино</span>
-				<button class="btn" id="btn1">200 Р</button>
-			</div>
-			<div class="item">
-				<img src="https://telegra.ph/file/1ac7f32a4662bba040d80.jpg" alt="Amerikano" class="img">
-				<span class="description">Американо</span>
-			    <button class="btn" id="btn2">150 Р</button>
-		    </div>
-		    <div id="freshes"><span class="title freshes">Фреши</span></div><div></div>
-			<div class="item">
+				<div><span class="title">Кофе</span></div><div></div>
+				<div id="coffee" class="item coffee">
+					<img src="https://telegra.ph/file/e306fc9292c29e18e715f.jpg" alt="Capucino" class="img">
+					<span class="description">Капучино</span>
+					<button class="btn" data-id="btn">200 Р</button>
+					<div id="quantityBlock" class="quantityBlock quantityBlockFirst"><button data-id="minus" id="quantityArrowMinus" class="quantityArrowMinus">-</button><input class="quantityNum quantityNumFirst" type="text" value="1" /><button class="quantityArrowPlus">+</button></div>
+				</div>
+				<div id="coffee" class="item coffee">
+					<img src="https://telegra.ph/file/1ac7f32a4662bba040d80.jpg" alt="Amerikano" class="img">
+					<span class="description">Американо</span>
+				    <button class="btn" data-id="btn">150 Р</button>
+					<div id="quantityBlock" class="quantityBlock quantityBlockSecond"><button data-id="minus" id="quantityArrowMinus" class="quantityArrowMinus">-</button><input id="quantityNum" class="quantityNum quantityNumSecond" type="text" value="1" /><button class="quantityArrowPlus">+</button></div>
+			    </div>
+		    <div><span class="title">Фреши</span></div><div></div>
+			<div id="freshes" class="item freshes">
 				<img src="https://telegra.ph/file/d1cfc32616feb9642527a.jpg" alt="Espresso" class="img">
 				<span class="description">Эспрессо</span>
-			    <button class="btn" id="btn3">100 Р</button>
+			    <button class="btn" data-id="btn">100 Р</button>
+					<div id="quantityBlock" class="quantityBlock quantityBlockThird"><button data-id="minus" class="quantityArrowMinus">-</button><input class="quantityNum quantityNumThird" type="text" value="1" /><button class="quantityArrowPlus">+</button></div>
 			</div>
-			<div class="item">
+			<div id="freshes" class="item freshes">
 				<img src="https://telegra.ph/file/5cc2754059e22ac315aa0.jpg" alt="FlatWhite" class="img">
 				<span class="description">Флэт-Уайт</span>
-				<button class="btn" id="btn4">250 Р</button>
+				<button class="btn" data-id="btn">250 Р</button>
+				<div id="quantityBlock" class="quantityBlock quantityBlockForth"><button data-id="minus" class="quantityArrowMinus">-</button><input class="quantityNum quantityNumForth" type="text" value="1" /><button class="quantityArrowPlus">+</button></div>
 			</div>
-			<div id="coldDrinks"><span class="title coldDrinks">Холодные напитки</span></div><div></div>
-			<div class="item">
+			<div><span class="title">Холодные напитки</span></div><div></div>
+			<div id="coldDrinks" class="item coldDrinks">
 				<img src="https://telegra.ph/file/2b801c62e8ea60e6eeb82.jpg" alt="Raf" class="img">
 				<span class="description">Фисташковый раф</span>
-				<button class="btn" id="btn5">280 Р</button>
+				<button class="btn" data-id="btn">280 Р</button>
+				<div id="quantityBlock" class="quantityBlock quantityBlockFifth"><button data-id="minus" class="quantityArrowMinus">-</button><input class="quantityNum quantityNumFive" type="text" value="1" /><button class="quantityArrowPlus">+</button></div>
 			</div>
-			<div class="item">
+			<div id="coldDrinks" class="item coldDrinks">
 				<img src="https://telegra.ph/file/e0cf05174cd595606ba68.jpg" alt="Orange Fresh" class="img">
 				<span class="description">Апельсиновый фреш</span>
-				<button class="btn" id="btn6">170 Р</button>
+				<button class="btn" data-id="btn">170 Р</button>
+				<div id="quantityBlock" class="quantityBlock quantityBlockSix"><button data-id="minus" class="quantityArrowMinus">-</button><input class="quantityNum quantityNumSix" type="text" value="1" /><button class="quantityArrowPlus">+</button></div>
 			</div>
-			<div class="item">
+			<div id="coldDrinks" class="item coldDrinks">
 				<img src="https://telegra.ph/file/2b801c62e8ea60e6eeb82.jpg" alt="Raf" class="img">
 				<span class="description">Фисташковый раф</span>
-				<button class="btn" id="btn5">280 Р</button>
+				<button class="btn" data-id="btn">280 Р</button>
+				<div id="quantityBlock" class="quantityBlock quantityBlockSeven"><button data-id="minus" class="quantityArrowMinus">-</button><input class="quantityNum quantityNumSeventh" type="text" value="1" /><button class="quantityArrowPlus">+</button></div>
 			</div>
-			<div class="item">
+			<div id="coldDrinks" class="item coldDrinks">
 				<img src="https://telegra.ph/file/e0cf05174cd595606ba68.jpg" alt="Orange Fresh" class="img">
 				<span class="description">Апельсиновый фреш</span>
-				<button class="btn" id="btn6">170 Р</button>
+				<button class="btn" data-id="btn">170 Р</button>
+				<div id="quantityBlock" class="quantityBlock quantityBlockEight"><button data-id="minus" class="quantityArrowMinus">-</button><input class="quantityNum quantityNumEight" type="text" value="1" /><button class="quantityArrowPlus">+</button></div>
 			</div>
-			<div id="grains"><span class="title grains">Зерна</span></div><div></div>
-			<div class="item">
+			<div><span class="title">Зерна</span></div><div></div>
+			<div id="grains" class="item grains">
 				<img src="https://telegra.ph/file/2b801c62e8ea60e6eeb82.jpg" alt="Raf" class="img">
 				<span class="description">Фисташковый раф</span>
-				<button class="btn" id="btn5">280 Р</button>
+				<button class="btn" data-id="btn">280 Р</button>
+				<div id="quantityBlock" class="quantityBlock quantityBlockNine"><button data-id="minus" class="quantityArrowMinus">-</button><input class="quantityNum quantityNumNine" type="text" value="1" /><button class="quantityArrowPlus">+</button></div>
 			</div>
-			<div class="item">
+			<div id="grains" class="item grains">
 				<img src="https://telegra.ph/file/e0cf05174cd595606ba68.jpg" alt="Orange Fresh" class="img">
 				<span class="description">Апельсиновый фреш</span>
-				<button class="btn" id="btn6">170 Р</button>
+				<button class="btn" data-id="btn">170 Р</button>
+				<div id="quantityBlock" class="quantityBlock quantityBlockTen"><button data-id="minus" class="quantityArrowMinus">-</button><input class="quantityNum quantityNumTen" type="text" value="1" /><button class="quantityArrowPlus">+</button></div>
 			</div>
-			<!-- <span class="title">Зерна</span> -->
-			<div class="item">
+			<div id="grains" class="item grains">
 				<img src="https://telegra.ph/file/2b801c62e8ea60e6eeb82.jpg" alt="Raf" class="img">
 				<span class="description">Фисташковый раф</span>
-				<button class="btn" id="btn5">280 Р</button>
+				<button class="btn" data-id="btn">280 Р</button>
+				<div id="quantityBlock" class="quantityBlock quantityBlockEleven"><button data-id="minus" class="quantityArrowMinus">-</button><input class="quantityNum quantityNumEleven" type="text" value="1" /><button class="quantityArrowPlus">+</button></div>
 			</div>
-			<div class="item">
+			<div id="grains" class="item grains">
 				<img src="https://telegra.ph/file/e0cf05174cd595606ba68.jpg" alt="Orange Fresh" class="img">
 				<span class="description">Апельсиновый фреш</span>
-				<button class="btn" id="btn6">170 Р</button>
+				<button class="btn" data-id="btn">170 Р</button>
+				<div id="quantityBlock" class="quantityBlock quantityBlockTwelve"><button data-id="minus" class="quantityArrowMinus">-</button><input class="quantityNum quantityNumTwelve" type="text" value="1" /><button class="quantityArrowPlus">+</button></div>
 			</div>
 		</div>
 	</div>
-	<div class="usercard" id="usercard"></div>
 	
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://telegram.org/js/telegram-web-app.js"></script>
 	<script src="app.js"></script>
 </body>
 </html>
-
-<!-- <script src="https://telegram.org/js/telegram-web-app.js"></script> -->
