@@ -3,98 +3,250 @@ let tg = window.Telegram.WebApp;
 tg.expand();
 
 tg.MainButton.textColor = "#FFFFFF";
-tg.MainButton.color = "#2cab37";
+tg.MainButton.color = "#30A3E6";
+tg.MainButton.text = "Корзина";
 
-let item = "";
-
-let btn1 = document.getElementById("btn1");
-let btn2 = document.getElementById("btn2");
-let btn3 = document.getElementById("btn3");
-let btn4 = document.getElementById("btn4");
-let btn5 = document.getElementById("btn5");
-let btn6 = document.getElementById("btn6");
-
-btn1.addEventListener("click", function(){
-	if (tg.MainButton.isVisible) {
-		tg.MainButton.hide();
+class Order {
+	constructor() {
+		this.name = [];
+		this.sugar = '';
+		this.links = [];
+		this.prices = [];
+		this.price = 0;
 	}
-	else {
-		tg.MainButton.setText("Корзина");
-		item = "1";
-		tg.MainButton.show();
-	}
-});
-
-btn2.addEventListener("click", function(){
-	if (tg.MainButton.isVisible) {
-		tg.MainButton.hide();
-	}
-	else {
-		tg.MainButton.setText("Корзина");
-		item = "2";
-		tg.MainButton.show();
-	}
-});
-
-btn3.addEventListener("click", function(){
-	if (tg.MainButton.isVisible) {
-		tg.MainButton.hide();
-	}
-	else {
-		tg.MainButton.setText("Корзина");
-		item = "3";
-		tg.MainButton.show();
-	}
-});
-
-btn4.addEventListener("click", function(){
-	if (tg.MainButton.isVisible) {
-		tg.MainButton.hide();
-	}
-	else {
-		tg.MainButton.setText("Корзина");
-		item = "4";
-		tg.MainButton.show();
-	}
-});
-
-btn5.addEventListener("click", function(){
-	if (tg.MainButton.isVisible) {
-		tg.MainButton.hide();
-	}
-	else {
-		tg.MainButton.setText("Корзина");
-		item = "5";
-		tg.MainButton.show();
-	}
-});
-
-btn6.addEventListener("click", function(){
-	if (tg.MainButton.isVisible) {
-		tg.MainButton.hide();
-	}
-	else {
-		tg.MainButton.setText("Корзина");
-		item = "6";
-		tg.MainButton.show();
-	}
-});
-
+};
+let order = new Order();
 
 Telegram.WebApp.onEvent("mainButtonClicked", function(){
-	tg.sendData(item);
+	if (tg.MainButton.text.includes('Корзина')) {
+		window.open('order.html', '_blank')
+		let len = order.name.length()
+		for(let l = len;) {
+			$('#inner').append(`<div class="elem"><img src=${order.links[l]} class="image"><span class="item-description sticky-top">${order.name[l]}</span><span class="header">Комментарий:</span><textarea class="comment" placeholder="Например: кофе без сахара"></textarea></div>`);
+		}
+		tg.MainButton.setText('Заказать' + order.price + 'р')
+	} else {
+		tg.sendData(order);
+	}
 });
 
-let usercard = document.getElementById("usercard");
+jQuery(document).ready(function($) {
+	var block_show = null;
+	function scrollTracking(){
+		// 1 //
+		var a = $(window).scrollTop();
+		var b = $(window).height();
+		var c = $('.coffee').offset().top;
+		var d = $('.coffee').outerHeight();
 
-window.onscroll = function() {scrollFunction()};
+		if (a + b >= c && a + b - d * 2 <= c + (b - d)){
+			if (block_show == null || block_show == false) {
+				document.getElementById("navbarButtonFirst").style.backgroundColor = "#30A3E6";
+				document.getElementById("navbarButtonSecond").style.backgroundColor = "#333333";
+				document.getElementById("navbarButtonThird").style.backgroundColor = "#333333";
+				document.getElementById("navbarButtonForth").style.backgroundColor = "#333333";
+			}
+			block_show = true;
+		} else {
+			if (block_show == null || block_show == true) {
+				document.getElementById("navbarButtonFirst").style.backgroundColor = "#333333";
+			}
+			block_show = false;
+		}
+		// 2 //
+		var e = $(window).scrollTop();
+		var f = $(window).height();
+		var g = $('.freshes').offset().top;
+		var h = $('.freshes').outerHeight();
 
-function scrollFunction() {
-  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-    document.getElementById("navbarButtonFirst").style.backgroundColor = "#30A3E6";
-  } else {
-    document.getElementById("navbarButtonFirst").style.backgroundColor = "#333333";
-  }
-}
+		if (e + f >= g && e + f - h * 2 <= g + (f - h)){
+			if (block_show == null || block_show == false) {
+				document.getElementById("navbarButtonSecond").style.backgroundColor = "#30A3E6";
+				document.getElementById("navbarButtonFirst").style.backgroundColor = "#333333";
+				document.getElementById("navbarButtonThird").style.backgroundColor = "#333333";
+				document.getElementById("navbarButtonForth").style.backgroundColor = "#333333";
+			}
+			block_show = true;
+		} else {
+			if (block_show == null || block_show == true) {
+				document.getElementById("navbarButtonSecond").style.backgroundColor = "#333333";
+			}
+			block_show = false;
+		}
+		// 3 //
+		var i = $(window).scrollTop();
+		var j = $(window).height();
+		var k = $('.coldDrinks').offset().top;
+		var l = $('.coldDrinks').outerHeight();
 
-usercard.appendChild(p); 
+		if (i + j >= k && i + j - l * 2 <= k + (j - l)){
+			if (block_show == null || block_show == false) {
+				document.getElementById("navbarButtonThird").style.backgroundColor = "#30A3E6";
+				document.getElementById("navbarButtonFirst").style.backgroundColor = "#333333";
+				document.getElementById("navbarButtonSecond").style.backgroundColor = "#333333";
+				document.getElementById("navbarButtonForth").style.backgroundColor = "#333333";
+				var el = document.getElementById('navbarButtonThird');
+				el.scrollIntoView({block: "center", inline: "center"});
+			}
+			block_show = true;
+		} else {
+			if (block_show == null || block_show == true) {
+				document.getElementById("navbarButtonThird").style.backgroundColor = "#333333";
+			}
+			block_show = false;
+		}
+		var m = $(window).scrollTop();
+		var n = $(window).height();
+		var o = $('.grains').offset().top;
+		var p = $('.grains').outerHeight();
+
+		if (m + n >= o && m + n - p * 2 <= o + (n - p)){
+			if (block_show == null || block_show == false) {
+				document.getElementById("navbarButtonForth").style.backgroundColor = "#30A3E6";
+				document.getElementById("navbarButtonFirst").style.backgroundColor = "#333333";
+				document.getElementById("navbarButtonSecond").style.backgroundColor = "#333333";
+				document.getElementById("navbarButtonThird").style.backgroundColor = "#333333";
+			}
+			block_show = true;
+		} else {
+			if (block_show == null || block_show == true) {
+				document.getElementById("navbarButtonForth").style.backgroundColor = "#333333";
+			}
+			block_show = false;
+		}
+	}
+	 
+	$(window).scroll(function(){
+		scrollTracking();
+	});
+		
+	$(document).ready(function(){ 
+		scrollTracking();
+	});
+});
+
+jQuery(document).ready(function($) {
+	var element = document.querySelector('#coldDrinks');
+	var element1 = document.querySelector('#coffee');
+
+	var Visible = function (target) {
+	  var targetPosition = {
+	      top: window.pageYOffset + target.getBoundingClientRect().top,
+	      left: window.pageXOffset + target.getBoundingClientRect().left,
+	      right: window.pageXOffset + target.getBoundingClientRect().right,
+	      bottom: window.pageYOffset + target.getBoundingClientRect().bottom
+	    },
+	    windowPosition = {
+	      top: window.pageYOffset,
+	      left: window.pageXOffset,
+	      right: window.pageXOffset + document.documentElement.clientWidth,
+	      bottom: window.pageYOffset + document.documentElement.clientHeight
+	    };
+	    let lastScroll = 0;
+		const scrollPosition = () => window.pageYOffset || document.documentElement.scrollTop;
+
+	  if (targetPosition.bottom > windowPosition.top &&
+	    targetPosition.top < windowPosition.bottom &&
+	    targetPosition.right > windowPosition.left &&
+	    targetPosition.left < windowPosition.right &&
+	    scrollPosition() > lastScroll &&
+	    target == document.querySelector('#coldDrinks')) {
+	    var el = document.getElementById('navbarButtonThird');
+		el.scrollIntoViewIfNeeded();
+	  } else if (targetPosition.bottom > windowPosition.top &&
+	  	targetPosition.top < windowPosition.bottom &&
+	  	targetPosition.right > windowPosition.left &&
+	  	targetPosition.left < windowPosition.right &&
+	  	scrollPosition() > lastScroll &&
+	  	target == document.querySelector('#coffee')) {
+	  	var el = document.getElementById('navbarButtonFirst');
+		el.scrollIntoViewIfNeeded();
+	  };
+	};
+
+	window.addEventListener('scroll', function() {
+	  Visible (element);
+	  Visible (element1);
+	});
+
+	Visible (element);
+	Visible (element1);
+});
+
+
+
+
+
+
+
+jQuery(document).ready(function() {
+	$(function() {
+	  (function quantityProducts() {
+	    let $quantityArrowMinus = $(".quantityArrowMinus");
+	    let $quantityArrowPlus = $(".quantityArrowPlus");
+	    let $quantityNum = $(".quantityNum");
+
+	    function quantityMinus() {
+	    	if ($(this).parent().children(".quantityNum").val() != 1) {
+	    		$(this).parent().children(".quantityNum").val(+$(this).parent().children(".quantityNum").val() - 1);
+	    	} else {
+	    		$(this).parent().css('display', 'none');
+	    		$(this).parent().parent().children(".btn").css('display', 'inline-block');
+	    	}
+	    }
+	    function quantityPlus() {
+	    	$(this).parent().children(".quantityNum").val(+$(this).parent().children(".quantityNum").val() + 1);
+	    }
+	    $quantityArrowMinus.click(quantityMinus);
+	    $quantityArrowPlus.click(quantityPlus);
+	  })();
+	 
+	});
+	$(function() {
+		(function hideButton() {
+			let $btn = $(".btn")
+			let $Plus = $(".quantityArrowPlus")
+			let $Minus = $(".quantityArrowMinus")
+
+			function hide() {
+				$(this).css('display', 'none')
+				$(this).parent().children(".quantityBlock").css('display', 'flex')
+			};
+			function changeButtonText() {
+				if ($(this).data('id') == 'btn') {
+					order.name.push($(this).parent().children(".description").text());
+					order.links.push($(this).parent().children(".img").attr('src'));
+					let prevPrice = Number($(this).parent().children(".btn").text().replace(/[^0-9]/g,""));
+					let buttonPrice = Number(tg.MainButton.text.replace(/[^0-9]/g,""));
+					let price = prevPrice + buttonPrice;
+					order.price = price;
+					tg.MainButton.setText('Корзина ' + price + 'р');
+				} else if($(this).data('id') != 'minus') {
+					let prevPrice = tg.MainButton.text.replace(/[^0-9]/g,"");
+					let price = Number(prevPrice) + Number($(this).parent().parent().children(".btn").text().replace(/[^0-9]/g,""));
+					order.name.push($(this).parent().parent().children(".description").text());
+					order.links.push($(this).parent().parent().children(".img").attr('src'));
+					order.price = price;
+					tg.MainButton.setText('Корзина ' + order.price + 'р');
+				} else {
+					let prevPrice = Number($(this).parent().parent().children('.btn').text().replace(/[^0-9]/g,""));
+					let buttonPrice = Number(tg.MainButton.text.replace(/[^0-9]/g,""));
+					order.price = buttonPrice - prevPrice;
+					var index = order.name.indexOf($(this).parent().parent().children(".description").text());
+					var index_links = order.links.indexOf($(this).parent().parent().children(".img").attr('src'));
+					order.name.splice(index, 1)
+					order.links.splice(index, 1)
+					if (order.price != 0) {
+						tg.MainButton.setText('Корзина ' + order.price + 'р')
+					} else {
+						tg.MainButton.setText('Корзина')
+					};
+				}
+			};
+			$btn.click(hide);
+			$btn.click(changeButtonText);
+			$Plus.click(changeButtonText);
+			$Minus.click(changeButtonText);
+		})();
+	});
+});
