@@ -16,19 +16,17 @@ class Order {
 	}
 };
 let order = new Order();
-jQuery(document).ready(function($) {
-	Telegram.WebApp.onEvent("mainButtonClicked", function(){
-		if (tg.MainButton.text.includes('Корзина')) {
-			window.open('order.html', '_blank');
-			let len = order.name.length();
-			for (var l = order.name.length(); l<order.name.length(); l++) {
-				$('#inner').append(`<div class="elem"><img src=${order.links[l]} class="image"><span class="item-description sticky-top">${order.name[l]}</span><span class="header">Комментарий:</span><textarea class="comment" placeholder="Например: кофе без сахара"></textarea></div>`);
-			}
-			tg.MainButton.setText('Заказать' + order.price + 'р');
-		} else {
-			tg.sendData(order);
+Telegram.WebApp.onEvent("mainButtonClicked", function(){
+	if (tg.MainButton.text.includes('Корзина')) {
+		window.open('order.html', '_blank');
+		let len = order.name.length();
+		for (var l = order.name.length(); l<order.name.length(); l++) {
+			document.getElementById('inner').innerHTML += `<div class="elem"><img src=${order.links[l]} class="image"><span class="item-description sticky-top">${order.name[l]}</span><span class="header">Комментарий:</span><textarea class="comment" placeholder="Например: кофе без сахара"></textarea></div>`;
 		}
-	});
+		tg.MainButton.setText('Заказать' + order.price + 'р');
+	} else {
+		tg.sendData(order);
+	}
 });
 
 jQuery(document).ready(function($) {
