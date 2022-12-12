@@ -208,6 +208,7 @@ jQuery(document).ready(function() {
 					let price = prevPrice + buttonPrice;
 					order.price = price;
 					tg.MainButton.setText('Корзина ' + price + 'р');
+					tg.MainButton.show();
 				} else if($(this).data('id') != 'minus') {
 					let prevPrice = tg.MainButton.text.replace(/[^0-9]/g,"");
 					let price = Number(prevPrice) + Number($(this).parent().parent().children(".btn").text().replace(/[^0-9]/g,""));
@@ -226,6 +227,7 @@ jQuery(document).ready(function() {
 					if (order.price != 0) {
 						tg.MainButton.setText('Корзина ' + order.price + 'р')
 					} else {
+						tg.MainButton.hide()
 						tg.MainButton.setText('Корзина')
 					};
 				}
