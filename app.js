@@ -160,12 +160,6 @@ jQuery(document).ready(function($) {
 	Visible (element1);
 });
 
-
-
-
-
-
-
 jQuery(document).ready(function() {
 	$(function() {
 	  (function quantityProducts() {
@@ -242,9 +236,10 @@ jQuery(document).ready(function() {
 		})();
 	});
 });
+
 Telegram.WebApp.onEvent("mainButtonClicked", function(){
 	if (tg.MainButton.text.includes('Корзина')) {
-		window.open('order.html', '_blank');
+		document.location.replace('https://akhmed-gadzhiev.github.io/akhmed-gadzhiev-akhmed-gadzhiev-akhmed-gadzhiev.github.io/order.html')
 		let len = order.name.length();
 		for (var l = order.name.length(); l<order.name.length(); l++) {
 			document.getElementById('inner').innerHTML += `<div class="elem"><img src=${order.links[l]} class="image"><span class="item-description sticky-top">${order.name[l]}</span><span class="header">Комментарий:</span><textarea class="comment" placeholder="Например: кофе без сахара"></textarea></div>`;
