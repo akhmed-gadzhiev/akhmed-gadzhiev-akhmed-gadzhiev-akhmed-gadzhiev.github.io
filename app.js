@@ -237,20 +237,18 @@ jQuery(document).ready(function() {
 	});
 });
 
-jQuery(document).ready(function($) {
-	Telegram.WebApp.onEvent("mainButtonClicked", function(){
-		if (tg.MainButton.text.includes('Корзина')) {
-			document.location.replace('https://akhmed-gadzhiev.github.io/akhmed-gadzhiev-akhmed-gadzhiev-akhmed-gadzhiev.github.io/order.html');
-			document.addEventListener("DOMContentLoaded", function(){
-				for (var l = 0; l<order.name.length; l++) {
-					var out = `<div class="elem"><img src=${order.links[l]} class="image"><span class="item-description sticky-top">${order.name[l]}</span><span class="header">Комментарий:</span><textarea class="comment" placeholder="Например: кофе без сахара"></textarea></div>`;
-					var hl = document.getElementById('inner');
-					hl.innerHTML += out;
-				}
-				tg.MainButton.setText('Заказать ' + order.price + 'р');
-			});
-		} else {
-			tg.sendData(order);
-		}
-	});
+Telegram.WebApp.onEvent("mainButtonClicked", function(){
+	if (tg.MainButton.text.includes('Корзина')) {
+		document.location.replace('https://akhmed-gadzhiev.github.io/akhmed-gadzhiev-akhmed-gadzhiev-akhmed-gadzhiev.github.io/order.html');
+		$(document).ready(function($) {
+			for (var l = 0; l<order.name.length; l++) {
+				var out = `<div class="elem"><img src=${order.links[l]} class="image"><span class="item-description sticky-top">${order.name[l]}</span><span class="header">Комментарий:</span><textarea class="comment" placeholder="Например: кофе без сахара"></textarea></div>`;
+				var hl = document.getElementById('inner');
+				hl.innerHTML += out;
+			}
+			tg.MainButton.setText('Заказать ' + order.price + 'р');
+		});
+	} else {
+		tg.sendData(order);
+	}
 });
