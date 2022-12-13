@@ -237,17 +237,17 @@ jQuery(document).ready(function() {
 	});
 });
 
-Telegram.WebApp.onEvent("mainButtonClicked", function(){
-	if (tg.MainButton.text.includes('Корзина')) {
-		document.location.replace('https://akhmed-gadzhiev.github.io/akhmed-gadzhiev-akhmed-gadzhiev-akhmed-gadzhiev.github.io/order.html');
-		$(document).ready(function() {
+$(document).ready(function() {
+	Telegram.WebApp.onEvent("mainButtonClicked", function(){
+		if (tg.MainButton.text.includes('Корзина')) {
+			$('html').html('<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"><title>V12</title></head><body><div class="container-order"><div id="inner-order" class="inner-order"></div></div><script src="app.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script></body>');
 			for(var l = 0; l<order.name.length; l++) {
 				var out = `<div class="elem"><img src=${order.links[l]} class="image"><span class="item-description sticky-top">${order.name[l]}</span><span class="header">Комментарий:</span><textarea class="comment" placeholder="Например: кофе без сахара"></textarea></div>`;
-				$('.inner').append(out)
+				$('.inner-order').append(out)
 			}
 			tg.MainButton.setText('Заказать ' + order.price + 'р');
-		});
-	} else {
-		tg.sendData(order);
-	}
+		} else {
+			tg.sendData(order);
+		}
+	});
 });
