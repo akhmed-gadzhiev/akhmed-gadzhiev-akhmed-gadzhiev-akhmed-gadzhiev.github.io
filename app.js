@@ -243,8 +243,7 @@ Telegram.WebApp.onEvent("mainButtonClicked", function(){
 		$(document).ready(function() {
 			for(var l = 0; l<order.name.length; l++) {
 				var out = `<div class="elem"><img src=${order.links[l]} class="image"><span class="item-description sticky-top">${order.name[l]}</span><span class="header">Комментарий:</span><textarea class="comment" placeholder="Например: кофе без сахара"></textarea></div>`;
-				var hl = document.getElementById('inner');
-				hl.innerHTML += out;
+				$('.inner').append(out)
 			}
 			tg.MainButton.setText('Заказать ' + order.price + 'р');
 		});
