@@ -266,7 +266,7 @@ $(document).ready(function() {
 				console.log(prevResponse)
 				console.log(response)
 			}
-			tg.sendData(order);
+			tg.sendData(response);
 		}
 	});
 });
