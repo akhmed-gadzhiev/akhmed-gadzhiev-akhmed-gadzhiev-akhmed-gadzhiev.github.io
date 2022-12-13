@@ -252,17 +252,13 @@ $(document).ready(function() {
 		} else {
 			var response = '';
 			for (var l = 0; l<order.name.length; l++) {
-				var prevResponse = JSON.parse('{"name" : "", "comment" : "", "price" : ""}');
-				prevResponse.name = order.name[l];
+				var prevResponse = JSON.parse('{"name" : [], "comment" : [], "price" : ""}');
+				prevResponse.name.push(order.name[l]);
 				response += JSON.stringify(prevResponse);
-				console.log(prevResponse)
-				console.log(response)
 			};
 			for (var l = 0; l<order.name.length; l++) {
 				var value = document.getElementById(`comment${l}`).value;
-				response[l].comment = value;
-				console.log(prevResponse)
-				console.log(response)
+				response.comment.push(value);
 			}
 			tg.sendData(response);
 		}
