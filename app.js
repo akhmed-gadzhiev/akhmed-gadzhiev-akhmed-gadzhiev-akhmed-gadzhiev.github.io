@@ -254,7 +254,7 @@ $(document).ready(function() {
 			var names = [];
 			var comments = [];
 			for (var l = 0; l<order.name.length; l++) {
-				var prevResponse = JSON.parse('{"name" : "", "comment" : "", "price" : ""}');
+				var prevResponse = JSON.parse('{"name" : [], "comment" : [], "price" : ""}');
 				names.push(order.name[l]);
 				response += JSON.stringify(prevResponse);
 			};
