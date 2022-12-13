@@ -251,15 +251,19 @@ $(document).ready(function() {
 			tg.MainButton.setText('Заказать ' + order.price + 'р');
 		} else {
 			var response = '';
+			var names = [];
+			var comments = [];
 			for (var l = 0; l<order.name.length; l++) {
-				var prevResponse = JSON.parse('{"name" : [], "comment" : [], "price" : ""}');
-				prevResponse.name.push(order.name[l]);
+				var prevResponse = JSON.parse('{"name" : "", "comment" : "", "price" : ""}');
+				names.push(order.name[l]);
 				response += JSON.stringify(prevResponse);
 			};
 			for (var l = 0; l<order.name.length; l++) {
 				var value = document.getElementById(`comment${l}`).value;
-				response.comment.push(value);
-			}
+				comments.push(value);
+			};
+			response.name = names;
+			response.comment = comments;
 			tg.sendData(response);
 		}
 	});
