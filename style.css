@@ -290,9 +290,10 @@ input[type="number"] {
 	margin-left: 20px;
 }
 .comment:focus {
-	border-style: 1px solid;
+	border: 1px solid;
 	border-radius: 8px;
 	border-color: #fff;
+	outline: none;
 }
 .header {
 	display: block;
