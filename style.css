@@ -44,7 +44,7 @@ body {
 .inner {
 	display: grid;
 	grid-template-columns: 45% 45%;
-	grid-template-rows: 30px 200px 30px 200px 30px 200px 200px 30px 200px 200px 50px;
+	grid-template-rows: 30px 200px 30px 200px 30px 200px 200px 30px 200px 200px;
 	grid-column-gap: 30px;
 	grid-row-gap: 20px;
 }
@@ -224,26 +224,24 @@ input[type="number"] {
   justify-content: space-between;
   transition: all 5s ease;
 }
-.quantityArrowMinus,
 .quantityArrowPlus {
-  font-size: 20px;
+  font-size: 18px;
   width: 20%;
   border-radius: 8px;
   border: none;
   background: #30A3E6;
   color: #fff;
   text-align: center;
-  font-weight: 700;
 }
-
 .quantityArrowMinus {
-	/*margin-right: 10px;*/
+  font-size: 18px;
+  width: 20%;
+  border-radius: 8px;
+  border: none;
+  background: #30A3E6;
+  color: #fff;
+  text-align: center;
 }
-
-.quantityArrowPlus {
-	/*margin-left: 10px;*/
-}
-
 .quantityNum {
   font-size: 20px;
   padding: 5px 10px;
