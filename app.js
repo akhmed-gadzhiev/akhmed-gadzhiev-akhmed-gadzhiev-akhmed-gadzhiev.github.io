@@ -262,8 +262,8 @@ $(document).ready(function() {
 				var value = document.getElementById(`comment${l}`).value;
 				comments.push(value);
 			};
-			response.name = names;
-			response.comment = comments;
+			response.name = JSON.stringify(names);
+			response.comment = JSON.stringify(comments);
 			tg.sendData(response);
 		}
 	});
