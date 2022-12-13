@@ -244,7 +244,7 @@ jQuery(document).ready(function($) {
 			$('document').ready(function(){
 				let len = order.name.length();
 				for (var l = order.name.length(); l<order.name.length(); l++) {
-					$("#inner").append(`<div class="elem"><img src=${order.links[l]} class="image"><span class="item-description sticky-top">${order.name[l]}</span><span class="header">Комментарий:</span><textarea class="comment" placeholder="Например: кофе без сахара"></textarea></div>`);
+					$(".inner").append(`<div class="elem"><img src=${order.links[l]} class="image"><span class="item-description sticky-top">${order.name[l]}</span><span class="header">Комментарий:</span><textarea class="comment" placeholder="Например: кофе без сахара"></textarea></div>`);
 				}
 				tg.MainButton.setText('Заказать ' + order.price + 'р');
 			});
