@@ -44,9 +44,6 @@ body {
 	grid-row-gap: 20px;
 	overflow-y: scroll;
 	padding: 20px 20px 20px 20px;
-	border: 1px solid;
-	border-radius: 8px;
-	border-color: #30A3E6;
 }
 .comment {
 	display: inline-block;
@@ -89,4 +86,7 @@ body {
 }
 .elem {
 	text-align: left;
+	border: 1px solid;
+	border-radius: 8px;
+ border-color: #30A3E6;
 }
