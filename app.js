@@ -242,11 +242,14 @@ jQuery(document).ready(function($) {
 		if (tg.MainButton.text.includes('Корзина')) {
 			document.location.replace('https://akhmed-gadzhiev.github.io/akhmed-gadzhiev-akhmed-gadzhiev-akhmed-gadzhiev.github.io/order.html');
 			$('document').ready(function(){
-				let len = order.name.length();
+				//let len = order.name.length();
+				var out = '';
 				for (var l = order.name.length(); l<order.name.length(); l++) {
 					//$(".inner").append(`<div class="elem"><img src=${order.links[l]} class="image"><span class="item-description sticky-top">${order.name[l]}</span><span class="header">Комментарий:</span><textarea class="comment" placeholder="Например: кофе без сахара"></textarea></div>`);
-					$('body').append('<div>hi</div>')
+					//$('body').append('<div>hi</div>')
+					out += `<div class="elem"><img src=${order.links[l]} class="image"><span class="item-description sticky-top">${order.name[l]}</span><span class="header">Комментарий:</span><textarea class="comment" placeholder="Например: кофе без сахара"></textarea></div>`;
 				}
+				$('.inner').append(out);
 				tg.MainButton.setText('Заказать ' + order.price + 'р');
 			});
 			//let len = order.name.length();
