@@ -260,9 +260,8 @@ $(document).ready(function() {
 			};
 			for (var l = 0; l<order.name.length; l++) {
 				var value = document.getElementById(`comment${l}`).value;
-				var prevResponse = JSON.parse('{"name" : "", "comment" : "", "price" : ""}');
-				prevResponse.comment = value;
-				response += JSON.stringify(prevResponse);
+				resp = JSON.stringify(response);
+				resp[l].comment = value;
 				console.log(prevResponse)
 				console.log(response)
 			}
