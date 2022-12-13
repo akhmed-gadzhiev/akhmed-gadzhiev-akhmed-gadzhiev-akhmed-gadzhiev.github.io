@@ -93,6 +93,10 @@ jQuery(document).ready(function($) {
 				document.getElementById("navbarButtonFirst").style.backgroundColor = "#333333";
 				document.getElementById("navbarButtonSecond").style.backgroundColor = "#333333";
 				document.getElementById("navbarButtonThird").style.backgroundColor = "#333333";
+				var element = document.querySelector('#grains');
+				var targetPosition = window.pageXOffset + element.getBoundingClientRect().right;
+				var el = document.getElementById('navbarContainer');
+				el.scroll(targetPosition, 0)
 			}
 			block_show = true;
 		} else {
@@ -148,8 +152,7 @@ jQuery(document).ready(function($) {
 	  	target == document.querySelector('#coffee')) {
 	  	var el = document.getElementById('navbarButtonFirst');
 		el.scrollIntoViewIfNeeded();
-	  };
-	};
+	  }};
 
 	window.addEventListener('scroll', function() {
 	  Visible (element);
@@ -242,11 +245,27 @@ $(document).ready(function() {
 		if (tg.MainButton.text.includes('Корзина')) {
 			$('html').html('<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"><title>V12</title></head><body><div class="container-order"><div id="inner-order" class="inner-order"></div></div><script src="app.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script></body>');
 			for(var l = 0; l<order.name.length; l++) {
-				var out = `<div class="elem"><img src=${order.links[l]} class="image"><span class="item-description sticky-top">${order.name[l]}</span><span class="header">Комментарий:</span><textarea class="comment" placeholder="Например: кофе без сахара"></textarea></div>`;
+				var out = `<div class="elem"><img src=${order.links[l]} class="image"><span class="item-description sticky-top">${order.name[l]}</span><span class="header">Комментарий:</span><textarea id="comment${l}" class="comment" placeholder="Например: кофе без сахара"></textarea></div>`;
 				$('.inner-order').append(out)
 			}
 			tg.MainButton.setText('Заказать ' + order.price + 'р');
 		} else {
+			var response = '';
+			for (var l = 0; l<order.name.length; l++) {
+				var prevResponse = JSON.parse('{"name" : "", "comment" : "", "price" : ""}');
+				prevResponse.name = order.name[l];
+				response += JSON.stringify(prevResponse);
+				console.log(prevResponse)
+				console.log(response)
+			};
+			for (var l = 0; l<order.name.length; l++) {
+				var value = document.getElementById(`comment${l}`).value;
+				var prevResponse = JSON.parse('{"name" : "", "comment" : "", "price" : ""}');
+				prevResponse.comment = value;
+				response += JSON.stringify(prevResponse);
+				console.log(prevResponse)
+				console.log(response)
+			}
 			tg.sendData(order);
 		}
 	});
