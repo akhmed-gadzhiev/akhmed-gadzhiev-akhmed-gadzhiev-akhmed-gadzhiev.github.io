@@ -256,14 +256,17 @@ $(document).ready(function() {
 			for (var l = 0; l<order.name.length; l++) {
 				var prevResponse = JSON.parse('{"name" : [], "comment" : [], "price" : ""}');
 				names.push(order.name[l]);
-				response += JSON.stringify(prevResponse);
 			};
+			prevResponse.name = names;
+			response = JSON.stringify(prevResponse);
 			for (var l = 0; l<order.name.length; l++) {
+				var prResponse = JSON.parse(response);
 				var value = document.getElementById(`comment${l}`).value;
 				comments.push(value);
 			};
-			response.name = JSON.stringify(names);
-			response.comment = JSON.stringify(comments);
+			prResponse.comment = comments;
+			prResponse.price = tg.MainButton.text.replace(/[^0-9]/g,"");
+			response = JSON.stringify(prResponse);
 			tg.sendData(response);
 		}
 	});
